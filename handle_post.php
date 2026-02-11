@@ -8,8 +8,7 @@
 <?php // Script 5.2 - handle_post.php
 /* Thhis script recieves five values from posting.html
 first_name, last_name, email, posting, submit */
-
-// Address error management, iif you want.
+// Address error management, if you want.
 
 // Get the values from the $_POST array:
 $first_name = $_POST['first_name'];
@@ -21,7 +20,12 @@ $name = $first_name . ' ' . $last_name;
 
 // Print a message:
 print "<div>Thank you, $name, for you posting:
-<p>$posting</p></div>";
+<p>Original: $posting</p></div>";
+
+// Make a link to another page:
+$name = urlencode($name);
+$email = urlencode($_POST['email']);
+print "<p>Click <a href=\"thanks.php? name=$name&email\">here</a> to continue.</p>";
 
 ?>
 </body>
